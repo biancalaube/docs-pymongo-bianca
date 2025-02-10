@@ -1,5 +1,4 @@
 PARSER_VERSION=0.18.13
-
 # This make command curls the examples for certain repos.
 # If the rule doesn't exist, the error doesn't interrupt the build process.
 make examples
@@ -13,13 +12,13 @@ fi
 
 echo "======================================================================================================================================================================="
 echo "========================================================================== Running parser... =========================================================================="
-./snooty-parser/snooty/snooty build . --no-caching --branch=master --output=./bundle.zip
+./snooty-parser/snooty/snooty build . --no-caching --branch=master --output=./bundle.zip 
 echo "========================================================================== Parser complete ============================================================================"
 echo "======================================================================================================================================================================="
 
 if [ ! -d "snooty" ]; then
   echo "snooty frontend not installed, downloading"
-  git clone -b netlify-pageID-hotfix --depth 1 https://github.com/mongodb/snooty.git 
+  git clone -b netlify-pageId-hotfix --depth 1 https://github.com/mongodb/snooty.git 
   echo GATSBY_MANIFEST_PATH=$(pwd)/bundle.zip >> ./snooty/.env.production
   cd snooty
   npm ci --legacy-peer-deps
